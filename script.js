@@ -176,50 +176,43 @@ categoryFilter.addEventListener("change", () => {
 });
 
 tableBody.addEventListener("click", (event) => {
-    if (!event.target.classList.contains("delete-btn")) {
+    const deleteBtn = event.target.closest(".delete-btn");
+    if (!deleteBtn) {
         return;
     }
 
-    const targetId = Number(event.target.dataset.id);
-<<<<<<< HEAD
+    const targetId = Number(deleteBtn.dataset.id);
+    if (Number.isNaN(targetId)) {
+        showFeedback("Could not identify the expense to delete.", true);
+        return;
+    }
+
     const updatedExpenses = [];
+    let found = false;
 
     for (let i = 0; i < expenses.length; i++) {
-        if (expenses[i].id !== targetId) {
+        if (expenses[i].id === targetId) {
+            found = true;
+        } else {
             updatedExpenses.push(expenses[i]);
         }
+    }
+
+    if (!found) {
+        showFeedback("Expense was not found.", true);
+        return;
     }
 
     expenses = updatedExpenses;
     renderDashboard();
     showFeedback("Expense deleted.");
-=======
-    const remainingExpenses = [];
-
-    for (let i = 0; i < expenses.length; i++) {
-        if (expenses[i].id !== targetId) {
-            remainingExpenses.push(expenses[i]);
-        }
-    }
-
-    expenses = remainingExpenses;
-    renderDashboard();
-    showFeedback("Expense deleted and budget updated.");
->>>>>>> 1190a83552e7cb25c23dc07c5a307eec2ee453ef
 });
 
 clearBtn.addEventListener("click", () => {
     expenses = [...initialExpenses];
     categoryFilter.value = "All";
     renderDashboard();
-<<<<<<< HEAD
     showFeedback("Reset to initial sample expenses.");
 });
 
 renderDashboard();
-=======
-    showFeedback("Sample expenses restored.");
-});
-
-renderDashboard();
->>>>>>> 1190a83552e7cb25c23dc07c5a307eec2ee453ef
