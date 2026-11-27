@@ -1,12 +1,12 @@
-# Spendwise
+# SpendWise
 
-A lightweight web-based expense tracker built with HTML, CSS, and JavaScript. This project demonstrates foundational web development concepts, including semantic HTML tables, clean CSS styling, and basic JavaScript variable declarations and data types.
+An interactive web-based personal budgeting and expense tracking application built with HTML, CSS, and JavaScript.
 
 ## Project Structure
 
 ```text
 spendwise/
-├── index.html      # Main HTML structure containing the expense table
-├── style.css       # Styling for the header and striped expense table
-├── script.js       # JavaScript fundamentals (constants, variables, and data types)
+├── index.html      # Form, budget summary cards, category filter, and expense table
+├── style.css       # Layout, status banner states, and table styling
+├── script.js       # State management, loops, conditionals, DOM rendering, and events
 └── README.md       # Project documentation
