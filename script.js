@@ -181,24 +181,24 @@ tableBody.addEventListener("click", (event) => {
     }
 
     const targetId = Number(event.target.dataset.id);
-    const updatedExpenses = [];
+    const remainingExpenses = [];
 
     for (let i = 0; i < expenses.length; i++) {
         if (expenses[i].id !== targetId) {
-            updatedExpenses.push(expenses[i]);
+            remainingExpenses.push(expenses[i]);
         }
     }
 
-    expenses = updatedExpenses;
+    expenses = remainingExpenses;
     renderDashboard();
-    showFeedback("Expense deleted.");
+    showFeedback("Expense deleted and budget updated.");
 });
 
 clearBtn.addEventListener("click", () => {
     expenses = [...initialExpenses];
     categoryFilter.value = "All";
     renderDashboard();
-    showFeedback("Reset to initial sample expenses.");
+    showFeedback("Sample expenses restored.");
 });
 
 renderDashboard();
